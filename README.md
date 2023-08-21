@@ -1,1 +1,2 @@
-# Aroseagida2023_VR
+# django_lec
+django project
