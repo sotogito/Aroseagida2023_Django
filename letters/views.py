@@ -59,7 +59,7 @@ def receive_unity_data(request):
 
 
 
-#Level보내는 api
+#Level보내는
 @api_view(['GET'])
 def get_user_level(request):
     active_question_count = PrevLetter.objects.filter(is_active=True).count()
