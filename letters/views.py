@@ -81,4 +81,33 @@ def get_user_level(request):
     }
     return Response(context)
 
+#Unity PrevLetterList_Select로 10개의 letter보내기
+@api_view(['GET'])
+def get_prevletter_list(request):
+    active_letters = PrevLetter.objects.filter(is_active=True).order_by('-id')[:10]
+    prevletters = [letter.question_text for letter in active_letters]
+    prevletters_id = [letter.id for letter in active_letters]
+
+    context = {
+        'prevletters': prevletters,
+        'prevletters_id': prevletters_id
+    }
+    return Response(context)
+
+
+@api_view(['POST'])
+def update_is_active(request):
+    data_id = request.data.get('data_id')
+
+    try:
+        prev_letter = PrevLetter.objects.get(id=data_id)
+        prev_letter.is_active = False
+        prev_letter.save()
+        return Response({'message': 'is_active field updated successfully.'})
+    except PrevLetter.DoesNotExist:
+        return Response({'error': 'Data with specified ID not found.'}, status=400)
+
+
+
+
 
