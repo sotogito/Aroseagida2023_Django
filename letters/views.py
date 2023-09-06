@@ -6,9 +6,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import PrevLetterSerializer
 
-
-
-
+#나의 편지 (is_active : true)
 def mymail(request):
     active_count = PrevLetter.objects.filter(is_active=True).count()
     question_list = PrevLetter.objects.order_by('-id').filter(is_active=True)
@@ -18,19 +16,21 @@ def mymail(request):
     }
     return render(request, 'letters/mymail.html',question_context)
 
+#삭제된 편지 (is_active : false)
 def blockmail(request):
-    return render(request, 'letters/blockmail.html')
+    active_count = PrevLetter.objects.filter(is_active=False).count()
+    question_list = PrevLetter.objects.order_by('-id').filter(is_active=False)
+    question_context = {
+        'question_list': question_list,
+        'active_count': active_count
+    }
+    return render(request, 'letters/blockmail.html',question_context)
+
+
+
+
 
 #############unity##############
-'''
-@api_view(['POST'])
-def receive_unity_data(request):
-    serializer = PrevLetterSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=201)
-    return Response(serializer.errors, status=400)
-'''
 
 @api_view(['POST'])
 def receive_unity_data(request):

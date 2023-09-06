@@ -1,12 +1,25 @@
 <!-- Responsive navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
-        <a class="navbar-brand" href="/">django company</a>
+        <a class="navbar-brand" href='/'>Aroseagida</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="/company/">company info</a></li>
-                <li class="nav-item"><a class="nav-link" href="/mysite/">product</a></li>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">회사소개</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                        <li><a class="dropdown-item" href="/company/aroseagida">아로새기다</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">나의 편지</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                        <li><a class="dropdown-item" href="/mymail">나의 편지</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="/mymail/blockmail">삭제된 편지</a></li>
+                    </ul>
+                </li>
+                <a class="nav-link dropdown-toggle" href="/adventure" role="button" >게임 설명서</a>
                 {% if user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}">{{ user.username }} (logout)</a></li>
                 {% else %}
@@ -16,3 +29,4 @@
         </div>
     </div>
 </nav>
+

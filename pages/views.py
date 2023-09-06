@@ -3,5 +3,8 @@ from django.shortcuts import render
 def mainpage(request):
     return render(request, 'pages/mainpage.html')
 
-def company(request):
-    return render(request, 'pages/company_info.html')
+def aroseagida(request):
+    return render(request, 'pages/aroseagida.html')
+
+def adventure(request):
+    return render(request, 'pages/adventure.html')
