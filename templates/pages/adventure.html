@@ -1,4 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>게임설명</h1>
+<!-- Team members section-->
+<section class="py-5 bg-light">
+    <div class="container px-5 my-5">
+        <div class="text-center">
+            <h2 class="fw-bolder">사용하는 버튼</h2>
+            <p class="lead fw-normal text-muted mb-5"></p>
+                <img class="img-fluid rounded mb-5 mb-lg-0" src="https://cs444-practice.epfl.ch/tp/tp3/img/interaction/raw_mapping.png" alt="..." />
+            <p class="lead fw-normal text-muted mb-5"></p>
+        </div>
+        <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5 mb-5 mb-xl-0">
+                <div class="text-center">
+                    <h5 class="fw-bolder">그림 그리기</h5>
+                    <div class="fst-italic text-muted">RHandTrigger</div>
+                    <div class="fst-italic text-muted">LHandTrigger</div>
+                </div>
+            </div>
+            <div class="col mb-5 mb-5 mb-xl-0">
+                <div class="text-center">
+                    <h5 class="fw-bolder">색상 변경 & 편지 확인</h5>
+                    <div class="fst-italic text-muted">RawButton.X</div>
+                </div>
+            </div>
+            <div class="col mb-5 mb-5 mb-sm-0">
+                <div class="text-center">
+                    <h5 class="fw-bolder">그림 사진찍기</h5>
+                    <div class="fst-italic text-muted">RawButton.Y</div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="text-center">
+                    <h5 class="fw-bolder">그림 그리는 손 변경</h5>
+                    <div class="fst-italic text-muted">RawButton.A</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

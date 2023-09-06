@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>{{ content_list.title }}</h2>
+<h2>{{ content_list.id}}번째 편지</h2>
+<h3>{{ content_list.question_text }}</h3>
 <div>
     {{ content_list.content }}
 </div>
