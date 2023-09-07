@@ -30,7 +30,7 @@ def signup(request):
 
 @api_view(['GET'])
 def get_user_age(request):
-    user = AddUserProfile.objects.filter(id = 13).first() #임의의 사용자를 지정
+    user = AddUserProfile.objects.filter(id = 16).first() #임의의 사용자를 지정
     user_birthdate = user.birthdate
     now_date = datetime.now().date()
     user_age = now_date.year - user_birthdate.year - ((now_date.month, now_date.day) < (user_birthdate.month, user_birthdate.day))

@@ -97,7 +97,18 @@ def comment_delete(request, comment_id):
     return redirect('detail', content_id=comment.content_list.id)
 
 
-#############unity##############
+def is_active_update(request, id):
+    try:
+        prev_letter = PrevLetter.objects.get(id=id)
+        prev_letter.is_active = True
+        prev_letter.save()
+
+        return redirect('detail', content_id=id)
+    except PrevLetter.DoesNotExist:
+        return redirect('error_page')
+
+
+    #############unity##############
 
 @api_view(['POST'])
 def receive_unity_data(request):

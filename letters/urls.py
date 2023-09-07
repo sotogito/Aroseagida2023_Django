@@ -9,8 +9,7 @@ urlpatterns = [
     path('comment/create/<int:content_id>/', views.comment_create, name='comment_create'),
     path('comment/update/<int:comment_id>/', views.comment_update,name='comment_update'),
     path('comment/delete/<int:comment_id>/', views.comment_delete, name='comment_delete'),
-
-
+    path('mymail/is_active_update/<int:id>/', views.is_active_update, name='is_active_update'),
 
     #데이터 받기
     path('api/receive_unity_data/', views.receive_unity_data, name='receive_unity_data'),

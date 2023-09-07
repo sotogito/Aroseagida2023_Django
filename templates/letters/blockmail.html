@@ -15,7 +15,10 @@
                     {% if question_list %}
                     {% for question in question_list %}
                     <div class="accordion-item">
-                        <h3 class="accordion-header" id="heading{{ question.id }}"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ question.id }}" aria-expanded="true" aria-controls="collapse{{ question.id }}">{{question.question_text}}</button></h3>
+                        <a href="{% url 'detail' question.id %}">
+                            <h3 class="accordion-header" id="heading{{ question.id }}"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ question.id }}" aria-expanded="true" aria-controls="collapse{{ question.id }}">{{question.question_text}}</button></h3>
+                        </a>
+                        <a href="{% url 'is_active_update' question.id %}" class="btn btn-sm btn-outline-secondary">편지 다시보기</a>
                     </div>
                     {% endfor %}
                     {% else %}
