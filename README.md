@@ -1,2 +1,2 @@
 # django_lec
-django project
+아로새기다 Django Web
